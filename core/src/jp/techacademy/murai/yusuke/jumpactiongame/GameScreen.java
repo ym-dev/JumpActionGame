@@ -348,12 +348,20 @@ public class GameScreen extends ScreenAdapter {
             if (mPlayer.getBoundingRectangle().overlaps(enemy.getBoundingRectangle())) {
                 enemy.get();
                 mGame.bomb_sound.play(1.0f);
+
+                //当たったら直ぐゲームオーバー
+                mGameState = GAME_STATE_GAMEOVER;
+                mGame.gameover_sound.play(1.0f);
+/*
+                //当たったら１ポイントマイナス
                 mScore--;
                 if (mScore < 0) {
                     mScore = 0;
                     mGameState = GAME_STATE_GAMEOVER;
                     mGame.gameover_sound.play(1.0f);
                 }
+*/
+
                 break;
             }
         }
